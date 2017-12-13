@@ -29,4 +29,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'com.hjm:BottomTabBar:1.1.1'
+    //xbanner
+    compile 'com.xhb:xbanner:1.3.0'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'me.yokeyword:fragmentation:1.1.9'
 }
