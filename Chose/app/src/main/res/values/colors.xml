@@ -11,4 +11,7 @@
     <color name="colorAccent">#009688</color>
     <color name="textColorPrimary">#616161</color>
     <color name="viewBackground">@android:color/white</color>
+   <!--find-->
+    <color name="t">#0000ff</color>
+    <color name="f">#00ffff</color>
 </resources>

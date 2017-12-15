@@ -21,6 +21,8 @@
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".chen.History"/>
         <activity android:name=".chen.MySetting"/>
+        <!--find-->
+        <activity android:name=".Find.Fragment.Main2" />
     </application>
 
 </manifest>

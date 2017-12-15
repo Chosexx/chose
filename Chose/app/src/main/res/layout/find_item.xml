@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:id="@+id/find_item_linear">
+    <LinearLayout
+        android:background="@mipmap/uuuuu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+
+            android:gravity="center"
+            android:text="sssss"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/find_item_tv"/>
+
+        <com.bawei.chosexx.Find.utils.RoundImageView
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/find_item_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/photo" />
+    </LinearLayout>
+
+
+</LinearLayout>

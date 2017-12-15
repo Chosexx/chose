@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <!--<ImageView-->
+            <!--android:layout_width="80dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:src="@mipmap/photo"-->
+            <!--android:id="@+id/pinglun_image"/>-->
+        <com.bawei.chosexx.Find.Untils.CircleImageView
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/photo"
+            android:id="@+id/pinglun_image"/>
+        <LinearLayout
+            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/pinglun_name"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="sss"/>
+            <TextView
+                android:id="@+id/pinglun_time"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="sss"/>
+            <TextView
+                android:id="@+id/pinglun_title"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="sss"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
