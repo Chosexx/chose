@@ -109,7 +109,7 @@ public class Fragment_jianjie extends Fragment {
 
         return v;
     }
-     //评论
+     //评论...
      public void pinglundata(){
          //http://api.svipmovie.com/front/Commentary/getCommentList.do?mediaId=67c742837cf443638528066979732dfb
          Retrofit retrofit = new Retrofit.Builder()
