@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/fankui"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/zongse">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="反馈"
+            android:textColor="#ffff"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fankui"
+        android:layout_margin="5dp"
+        android:hint="请输入您的邮箱" />
+
+    <EditText
+        android:id="@+id/et_response"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/et_email"
+        android:layout_below="@+id/et_email"
+        android:layout_marginTop="12dp"
+        android:background="@null"
+        android:hint="请输入您的反馈..." />
+
+    <Button
+        android:id="@+id/btn_luyin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_response"
+        android:text="按住录音" />
+
+    <CheckBox
+        android:id="@+id/fkcb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_luyin"
+        android:layout_margin="20dp"
+        android:text="上传屏幕截图" />
+
+    <TextView
+        android:id="@+id/kftview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fkcb"
+        android:text="设备详情：XiaomiRedmi3(5.1.1)" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/kftview"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/fkqx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="取消" />
+
+        <Button
+            android:id="@+id/fkss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="发送" />
+    </LinearLayout>
+
+</RelativeLayout>
