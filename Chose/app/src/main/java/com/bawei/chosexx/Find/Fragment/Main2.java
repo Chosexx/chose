@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.bawei.chosexx.R;
+import com.bawei.chosexx.chen.db.Dao;
 import com.squareup.picasso.Picasso;
 
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
@@ -40,6 +41,8 @@ public class Main2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         aa();
         inview();
+        Dao dao=new Dao(this);
+        dao.add(title1,pic,loadurl);
     }
     public void inview(){
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab);
