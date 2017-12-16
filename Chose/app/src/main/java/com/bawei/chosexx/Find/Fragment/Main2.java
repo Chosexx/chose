@@ -1,6 +1,7 @@
 package com.bawei.chosexx.Find.Fragment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -17,7 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.bawei.chosexx.R;
-import com.bawei.chosexx.chen.bean.MyBean;
+import com.bawei.chosexx.chen.bean.MyCollectBean;
+import com.bawei.chosexx.chen.db.CollectDao;
 import com.bawei.chosexx.chen.db.Dao;
 import com.squareup.picasso.Picasso;
 
@@ -40,11 +42,15 @@ public class Main2 extends AppCompatActivity {
     private String loadurl;
     private String shareurl;
     private String title1;
-    private List<MyBean> list;
+   //收藏
+    private List<MyCollectBean> list;
     private ImageView image_shoucang;
     private LinearLayout lin_shoucang;
-    private Dao dao;
+    private CollectDao dao;
     private JCVideoPlayerStandard player;
+    private Dao d;
+    private SharedPreferences sp;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,26 +60,29 @@ public class Main2 extends AppCompatActivity {
         image_shoucang = findViewById(R.id.iamge_shoucang);
         aa();
         inview();
-        dao = new Dao(this);
-       // dao.add(title1, pic, loadurl);
-        list = dao.queryAll();
-        for (int i = 0; i < list.size(); i++) {
-            String name = list.get(i).getName();
-            Log.i("sss","ss"+name);
+        shoucang();
+        d = new Dao(this);
+        d.add(title1, pic, loadurl);
+    }
+    public void shoucang(){
+        dao = new CollectDao(this);
+        list = dao.queryCollect();
+         for (int i = 0; i < this.list.size(); i++) {
+            String name = this.list.get(i).getName();
+            Log.i("收藏ssssssssss","ss"+name);
             if (name.equals(title1)) {
                 image_shoucang.setImageResource(R.mipmap.collection_select);
             }else{
-                lin_shoucang.setOnClickListener(new View.OnClickListener() {
+                image_shoucang.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         image_shoucang.setImageResource(R.mipmap.collection_select);
-                        dao.add(title1, pic, loadurl);
+                        dao.addCollect(title1, pic, loadurl);
                     }
                 });
-             }
+            }
         }
     }
-
     public void inview() {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab);
         for (String str : title) {
@@ -83,7 +92,6 @@ public class Main2 extends AppCompatActivity {
         pager.setAdapter(new Myadapter(getSupportFragmentManager()));
         tabLayout.setupWithViewPager(pager);
     }
-
     class Myadapter extends FragmentPagerAdapter {
 
         public Myadapter(FragmentManager fm) {
@@ -105,7 +113,6 @@ public class Main2 extends AppCompatActivity {
             return title[position];
         }
     }
-
     public void aa() {
         Intent intent = getIntent();
         String airtime = intent.getStringExtra("airtime");
@@ -121,7 +128,6 @@ public class Main2 extends AppCompatActivity {
         mActionBar.setHomeButtonEnabled(true);
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setTitle(title1);
-        //Toast.makeText(this,""+shareurl,Toast.LENGTH_SHORT).show();
         if (shareurl != null) {
             player = (JCVideoPlayerStandard) findViewById(R.id.video);
             boolean setUp = player.setUp(shareurl, JCVideoPlayer.SCREEN_LAYOUT_LIST, "");
@@ -131,20 +137,15 @@ public class Main2 extends AppCompatActivity {
         } else {
             Toast.makeText(this, "已下架", Toast.LENGTH_SHORT).show();
         }
-        player.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dao.add(title1, pic, loadurl);
-            }
-        });
-    }
 
+
+
+    }
     @Override
     public boolean onSupportNavigateUp() {
         finish();
         return super.onSupportNavigateUp();
     }
-
     @Override
     public void onBackPressed() {
         if (JCVideoPlayer.backPress()) {
@@ -152,7 +153,6 @@ public class Main2 extends AppCompatActivity {
         }
         super.onBackPressed();
     }
-
     @Override
     protected void onPause() {
         super.onPause();

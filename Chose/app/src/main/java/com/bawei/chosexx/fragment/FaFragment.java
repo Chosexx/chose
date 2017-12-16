@@ -1,12 +1,15 @@
 package com.bawei.chosexx.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +22,8 @@ import com.bawei.chosexx.Find.Presenter.Presenter;
 import com.bawei.chosexx.Find.View.IView;
 import com.bawei.chosexx.Find.utils.OnitemCliecklineasn;
 import com.bawei.chosexx.R;
+import com.bawei.chosexx.chen.db.CollectDao;
+import com.bawei.chosexx.chen.db.Dao;
 
 import java.util.List;
 
@@ -56,8 +61,26 @@ public class FaFragment extends Fragment  implements IView {
                 presenter.getdata("columns/getVideoList.do?catalogId=402834815584e463015584e539330016&pnum="+id+"");
             }
         });
+        isFristRun();
         return view;
     }
+        private boolean isFristRun() {
+            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("share", Context.MODE_PRIVATE);
+            boolean isFirstRun = sharedPreferences.getBoolean("isFirstRun", true);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            if (!isFirstRun) {
+                return false;
+            } else {
+                editor.putBoolean("isFirstRun", false);
+                editor.commit();
+                Log.i("aaaaaaa","diyici");
+                CollectDao dao=new CollectDao(getActivity());
+                Dao d=new Dao(getActivity());
+                d.add("sss","sss","sss");
+                dao.addCollect("sss","sss","sss");
+                return true;
+            }
+        }
     @Override
     public void data(FindBean bean) {
         list = bean.getRet().getList();
