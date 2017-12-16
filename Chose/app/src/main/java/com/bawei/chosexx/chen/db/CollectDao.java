@@ -11,9 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by 陈令鸽 on 2017/12/16.
+ * Created by 陈令鸽 on 2017/12/16.嘿嘿
  */
 
+//收藏
 public class CollectDao {
 
     public SQLiteDatabase db;
