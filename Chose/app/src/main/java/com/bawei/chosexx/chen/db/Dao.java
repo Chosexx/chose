@@ -3,7 +3,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import com.bawei.chosexx.chen.bean.MyBean;
+import com.bawei.chosexx.chen.bean.MyHistoryBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,12 +25,12 @@ public class Dao {
     //    db.close();
     }
 
-    public List<MyBean> queryAll() {
+    public List<MyHistoryBean> queryAll() {
 
-        List<MyBean> list = new ArrayList<MyBean>();
+        List<MyHistoryBean> list = new ArrayList<MyHistoryBean>();
         Cursor cursor = db.rawQuery("select *from Myuser", null);
         while (cursor.moveToNext()) {
-            MyBean bean = new MyBean();
+            MyHistoryBean bean = new MyHistoryBean();
             bean.setName(cursor.getString(cursor.getColumnIndex("name")));
             bean.setUrl(cursor.getString(cursor.getColumnIndex("url")));
             bean.setUrls(cursor.getString(cursor.getColumnIndex("urls")));

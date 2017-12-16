@@ -118,6 +118,4 @@ public void aa(){
         super.onPause();
         JCVideoPlayer.releaseAllVideos();
     }
-
-
 }
