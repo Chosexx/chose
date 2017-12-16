@@ -11,12 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by 陈令鸽 on 2017/12/16.
+ * Created by 陈令鸽 on 2017/12/16.嘿嘿
  */
 
+//收藏
 public class CollectDao {
 
-    private SQLiteDatabase db;
+    public SQLiteDatabase db;
 
     public CollectDao(Context context) {
 
@@ -24,7 +25,7 @@ public class CollectDao {
         db = myHelper.getWritableDatabase();
     }
 
-    private void addCollect(String name, String url, String urls) {
+    public void addCollect(String name, String url, String urls) {
         ContentValues values = new ContentValues();
         values.put("name", name);
         values.put("url", url);
@@ -32,7 +33,7 @@ public class CollectDao {
         db.insert("myCollectUser", null, values);
     }
 
-    private List<MyCollectBean> queryCollect() {
+    public List<MyCollectBean> queryCollect() {
 
         //创建集合
         List<MyCollectBean> collectBeans = new ArrayList<>();
