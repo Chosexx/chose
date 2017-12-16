@@ -14,7 +14,8 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.bawei.chosexx.R;
-import com.bawei.chosexx.chen.History;
+import com.bawei.chosexx.chen.MyCollect;
+import com.bawei.chosexx.chen.MyHistory;
 import com.bawei.chosexx.chen.MySetting;
 
 import butterknife.BindView;
@@ -53,7 +54,7 @@ public class MineFragment extends Fragment {
     @OnClick(R.id.l1)
     void OneOnclick() {
 
-        startActivity(new Intent(getActivity(), History.class));
+        startActivity(new Intent(getActivity(), MyHistory.class));
     }
 
     @OnClick(R.id.l2)
@@ -65,6 +66,7 @@ public class MineFragment extends Fragment {
     @OnClick(R.id.l3)
     void ThrOnclick() {
 
+        startActivity(new Intent(getActivity(), MyCollect.class));
 
     }
 

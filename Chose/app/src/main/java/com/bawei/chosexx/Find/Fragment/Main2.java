@@ -158,6 +158,4 @@ public class Main2 extends AppCompatActivity {
         super.onPause();
         JCVideoPlayer.releaseAllVideos();
     }
-
-
 }

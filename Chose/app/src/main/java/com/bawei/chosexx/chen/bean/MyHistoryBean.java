@@ -4,19 +4,14 @@ package com.bawei.chosexx.chen.bean;
  * Created by 陈令鸽 on 2017/12/14.
  */
 
-public class MyBean {
+public class MyHistoryBean {
 
     String name;
     String url;
     String urls;
 
-    public MyBean(String name, String url, String urls) {
-        this.name = name;
-        this.url = url;
-        this.urls = urls;
-    }
 
-    public MyBean() {
+    public MyHistoryBean() {
     }
 
     public String getName() {
