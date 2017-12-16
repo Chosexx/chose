@@ -1,7 +1,5 @@
 package com.bawei.chosexx.Find.Fragment;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +19,6 @@ import com.bawei.chosexx.Find.Bean.PingLun_Bean;
 import com.bawei.chosexx.Find.Untils.ApiServer;
 import com.bawei.chosexx.Find.utils.OnitemCliecklineasn;
 import com.bawei.chosexx.R;
-import com.bawei.chosexx.chen.db.Dao;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -84,27 +80,9 @@ public class Fragment_jianjie extends Fragment {
                 tv.setText("简介:  "+jiejian1);
             }
             jianjiedata();
-        }else if(title.equals("评论")){
+        }else {
             v=inflater.inflate(R.layout.fragment_pinglun,null);
             pinglundata();
-        }else{
-            v=inflater.inflate(R.layout.find_shoucang,null);
-            final ImageView imageView=v.findViewById(R.id.find_image_shoucang);
-            SharedPreferences sp=getActivity().getSharedPreferences("info", Context.MODE_PRIVATE);
-            boolean first = sp.getBoolean("first", false);
-            if (first==true){
-                imageView.setImageResource(R.mipmap.collection_select);
-            }
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    SharedPreferences sp=getActivity().getSharedPreferences("info", Context.MODE_PRIVATE);
-                    sp.edit().putBoolean("first" ,true).commit();
-                    imageView.setImageResource(R.mipmap.collection);
-                    Dao dao=new Dao(getActivity());
-                    dao.add(name1,pic1,loadurl1);
-                }
-            });
         }
 
         return v;
