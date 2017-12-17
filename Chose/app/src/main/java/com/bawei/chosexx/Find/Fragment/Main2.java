@@ -50,7 +50,7 @@ public class Main2 extends AppCompatActivity {
     private JCVideoPlayerStandard player;
     private Dao d;
     private SharedPreferences sp;
-
+//......
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
